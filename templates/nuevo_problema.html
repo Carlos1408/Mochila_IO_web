@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card card-body">
+            <div class="card-title h3">Nuevo problema</div>
+            <form action="/nuevo-problema" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del problema</label>
+                    <input type="text" class="form-control" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="capacidad" class="form-label">Capacidad de la mochila</label>
+                    <input type="number" min="1" class="form-control" name="capacidad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cantidad" class="form-label">Cantidad de items</label>
+                    <input type="number" min="1" class="form-control" name="cantidad" required>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-primary" type="submit">Aceptar</button>
+                    <a href="/" class="btn btn-danger" type="button">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

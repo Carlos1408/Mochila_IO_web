@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title h3 mb-3">Ingreso de datos</div>
+                <div class="card-title h5 mb-3">Problema : {{nombre}}</div>
+                <div class="card-title h5 mb-3">Capacidad de la mochila: {{capacidad}}</div>
+                <form class="/ingreso-datos/{{nombre}}/{{capacidad}}{{cantidad}}", method="POST">
+                    <div class="input-group">
+                        <input type="text" value="Nombre del item" class="form-control" readonly>
+                        <input type="text" value="Peso" class="form-control" readonly>
+                        <input type="text" value="Utilidad" class="form-control" readonly>
+                    </div>
+                    {% for i in range(cantidad) %}
+                    <!-- for -->
+                    <div class="input-group">
+                        <input name="nombre{{i}}" type="text" class="form-control" required>
+                        <input name="peso{{i}}" type="number" class="form-control" required min="1">
+                        <input name="utilidad{{i}}" type="number" class="form-control" required min="1">
+                    </div>
+                    {% endfor %}
+                    <!-- endfor -->
+                    <div class="d-grid gap-2 d-md-block mt-3">
+                        <button class="btn btn-primary" type="submit">Aceptar</button>
+                        <a href="/nuevo-problema" class="btn btn-danger" type="button">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

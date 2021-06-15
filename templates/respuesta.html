@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title h3 mb-3">Solucion del problema</div>
+                <div class="card-title h5 mb-3">Soluciones: {{total_soluciones}}</div>
+                <div class="card-title h5 mb-3">Solucion: {{indice}}</div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="table-dark">
+                                <td>Nombre del item</td>
+                                <td>Cantidad</td>
+                                <td>Peso</td>
+                                <td>Utilidad</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for fila in solucion %}
+                            <tr>
+                                <td>{{fila.0}}</td>
+                                <td>{{fila.1}}</td>
+                                <td>{{fila.2}}</td>
+                                <td>{{fila.3}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="d-grid gap-2 d-md-block mt-3">
+                        <a href="/" class="btn btn-primary" type="submit">Inicio</a>
+                        <a href="/nuevo-problema" class="btn btn-success" type="button">Nuevo problema</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center pt-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item {% if indice == 1 %} disabled {% endif %}">
+                    <a class="page-link" href="/respuesta/{{indice-1}}" aria-disabled="{% if indice == 1 %} True {% else %} False {% endif %}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for i in range(1, total_soluciones+1) %}
+                <li class="page-item {% if i == indice %} active {% endif %}"><a class="page-link" href="/respuesta/{{i}}">{{i}}</a></li>
+                {% endfor %}
+                <li class="page-item {% if indice == total_soluciones %} disabled {% endif %}">
+                    <a class="page-link" href="/respuesta/{{indice+1}}" aria-disabled="{% if indice == total_soluciones %} True {% else %} False {% endif %}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
