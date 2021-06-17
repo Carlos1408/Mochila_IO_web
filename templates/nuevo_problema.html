@@ -19,7 +19,14 @@
                 </div>
                 <div class="d-grid gap-2 d-md-block">
                     <button class="btn btn-primary" type="submit">Aceptar</button>
-                    <a href="/" class="btn btn-danger" type="button">Cancelar</a>
+                    <!-- <a href="/" class="btn btn-danger" type="button">Cancelar</a> -->
+                    <button class="btn btn-danger" type="reset">Reiniciar</button>
+                </div>
+            </form>
+            <form action="/cargar" method="POST" enctype="multipart/form-data">
+                <div class="input-group my-3">
+                    <input type="file" class="form-control" name="archivo" required>
+                    <button type="submit" class="btn btn-primary">Cargar problema</button>
                 </div>
             </form>
         </div>
