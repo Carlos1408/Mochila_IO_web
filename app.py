@@ -70,7 +70,6 @@ def exportar():
     archivo = f'export\\files\\{mochila.nombre_problema}.pdf'
     nombre = mochila.nombre_problema+".pdf"
     generarPDF(archivo, mochila.get_formulacion_problema(), mochila.get_soluciones(), mochila.get_utilidad_neta())
-
     return send_file(archivo, as_attachment=True)
 
 if __name__ == '__main__':
