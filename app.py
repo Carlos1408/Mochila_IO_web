@@ -14,6 +14,7 @@ soluciones = None
 def nuevo_problema():
     global soluciones
     soluciones = None
+    print(request)
     if request.method == 'POST':
         nombre = request.form['nombre']
         capacidad = request.form['capacidad']
@@ -46,4 +47,4 @@ def respuesta(indice):
     return render_template('respuesta.html', solucion = solucion, indice = indice, total_soluciones = len(soluciones))
 
 if __name__ == '__main__':
-    app.run(port=3000, debug=True)
+    app.run(port=3000, debug=True, threaded=True)
