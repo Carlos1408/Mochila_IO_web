@@ -7,7 +7,7 @@
             <form action="/nuevo-problema" method="POST">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre del problema</label>
-                    <input type="text" class="form-control" name="nombre" required>
+                    <input type="text" class="form-control" name="nombre">
                 </div>
                 <div class="mb-3">
                     <label for="capacidad" class="form-label">Capacidad de la mochila</label>
@@ -23,6 +23,9 @@
                     <button class="btn btn-danger" type="reset">Reiniciar</button>
                 </div>
             </form>
+        </div>
+        <div class="card card-body mt-4">
+            <div class="card-title h3">Cargar problema guardado</div>
             <form action="/cargar" method="POST" enctype="multipart/form-data">
                 <div class="input-group my-3">
                     <input type="file" class="form-control" name="archivo" required>
