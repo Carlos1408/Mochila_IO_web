@@ -24,6 +24,7 @@ def nuevo_problema():
 
 @app.route('/ingreso-datos/<nombre>/<capacidad>/<cantidad>', methods = ['GET', 'POST'])
 def ingreso_datos(nombre, capacidad, cantidad):
+    dir(request)
     if request.method == 'POST':
         items = []
         for i in range(int(cantidad)):
